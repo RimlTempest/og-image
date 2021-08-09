@@ -237,6 +237,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         H('div',
             { className: 'pull-left' },
             H('div',
+                { className: 'card' },
                 H(Field, {
                     label: 'カラーテーマ',
                     input: H(Dropdown, {
