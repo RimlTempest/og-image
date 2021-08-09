@@ -392,6 +392,11 @@ const App = (_: any, state: AppState, setState: SetState) => {
                             const nextImage = images.length === 1
                                 ? 'https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg'
                                 : '';
+                            if (images.length < 4){
+                                setState({ showToast: true, messageToast: '画像は上限4枚までです。' });
+                                setTimeout(() => setState({ showToast: false }), 2000)
+                                return;
+                            }
                             setLoadingState({ images: [...images, nextImage] })
                         }
                     }),
