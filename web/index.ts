@@ -80,7 +80,7 @@ const Textarea = ({ value, oninput }: TextInputProps) => {
         H('div',
             { className: 'textarea-inner-wrapper' },
             H('textarea',
-                { type: 'text', rows: 8, value, oninput: (e: any) => oninput(e.target.value) }
+                { type: 'text', rows: 4, maxlength: "95", value, oninput: (e: any) => oninput(e.target.value) }
             )
         )
     );
