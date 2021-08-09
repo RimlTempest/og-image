@@ -203,7 +203,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         fontSize = '100px',
-        theme = 'light',
+        theme = 'dark',
         md = true,
         text = '**Hello** World',
         images=[imageLightOptions[0].value],
@@ -238,7 +238,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
             { className: 'pull-left' },
             H('div',
                 H(Field, {
-                    label: 'Theme',
+                    label: 'カラーテーマ',
                     input: H(Dropdown, {
                         options: themeOptions,
                         value: theme,
@@ -251,7 +251,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'File Type',
+                    label: '画像ファイルの形式',
                     input: H(Dropdown, {
                         options: fileTypeOptions,
                         value: fileType,
@@ -259,7 +259,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Font Size',
+                    label: 'フォントサイズ',
                     input: H(Dropdown, {
                         options: fontSizeOptions,
                         value: fontSize,
@@ -267,7 +267,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Text Type',
+                    label: 'テキストタイプ',
                     input: H(Dropdown, {
                         options: markdownOptions,
                         value: mdValue,
@@ -275,7 +275,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Text Input',
+                    label: '表示する文字',
                     input: H(TextInput, {
                         value: text,
                         oninput: (val: string) => {
@@ -285,7 +285,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     })
                 }),
                 H(Field, {
-                    label: 'Image 1',
+                    label: '画像 1',
                     input: H('div',
                         H(Dropdown, {
                             options: imageOptions,
@@ -323,7 +323,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     ),
                 }),
                 ...images.slice(1).map((image, i) => H(Field, {
-                    label: `Image ${i + 2}`,
+                    label: `画像 ${i + 2}`,
                     input: H('div',
                         H(TextInput, {
                             value: image,
@@ -359,7 +359,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                         H('div',
                             { className: 'field-flex' },
                             H(Button, {
-                                label: `Remove Image ${i + 2}`,
+                                label: `画像を削除する ${i + 2}`,
                                 onclick: (e: MouseEvent) => {
                                     e.preventDefault();
                                     const filter = (arr: any[]) => [...arr].filter((_, n) => n !== i + 1);
@@ -373,9 +373,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     )
                 })),
                 H(Field, {
-                    label: `Image ${images.length + 1}`,
+                    label: `画像 ${images.length + 1}`,
                     input: H(Button, {
-                        label: `Add Image ${images.length + 1}`,
+                        label: `画像を追加する ${images.length + 1}`,
                         onclick: () => {
                             const nextImage = images.length === 1
                                 ? 'https://cdn.jsdelivr.net/gh/remojansen/logo.ts@master/ts.svg'
@@ -400,7 +400,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     e.preventDefault();
                     const success = copee.toClipboard(url.href);
                     if (success) {
-                        setState({ showToast: true, messageToast: 'Copied image URL to clipboard' });
+                        setState({ showToast: true, messageToast: 'クリップボードに画像URLをコピーしました！' });
                         setTimeout(() => setState({ showToast: false }), 3000);
                     } else {
                         window.open(url.href, '_blank');
