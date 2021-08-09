@@ -2,6 +2,8 @@ import { IncomingMessage } from 'http';
 import { parse } from 'url';
 import { ParsedRequest, Theme } from './types';
 
+// TODO: 画像の任意選択、背景画像選択を実装する
+// 画像一枚目のデフォルト画像強制もなくする
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
