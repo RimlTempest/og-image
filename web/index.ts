@@ -206,7 +206,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         theme = 'dark',
         md = true,
         text = '**Hello** World',
-        images=[imageLightOptions[0].value],
+        images=[imageDarkOptions[0].value],
         widths=[],
         heights=[],
         showToast = false,
@@ -216,7 +216,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         overrideUrl = null,
     } = state;
     const mdValue = md ? '1' : '0';
-    const imageOptions = theme === 'light' ? imageLightOptions : imageDarkOptions;
+    const imageOptions = theme === 'dark' ? imageDarkOptions : imageLightOptions;
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
     url.searchParams.append('theme', theme);
@@ -243,7 +243,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                         options: themeOptions,
                         value: theme,
                         onchange: (val: Theme) => {
-                            const options = val === 'light' ? imageLightOptions : imageDarkOptions
+                            const options = val === 'dark' ? imageDarkOptions : imageLightOptions
                             let clone = [...images];
                             clone[0] = options[selectedImageIndex].value;
                             setLoadingState({ theme: val, images: clone });
