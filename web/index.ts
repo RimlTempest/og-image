@@ -74,6 +74,18 @@ const TextInput = ({ value, oninput }: TextInputProps) => {
     );
 }
 
+const Textarea = ({ value, oninput }: TextInputProps) => {
+    return H('div',
+        { className: 'textarea-outer-wrapper' },
+        H('div',
+            { className: 'textarea-inner-wrapper' },
+            H('textarea',
+                { type: 'text', rows: 8, value, oninput: (e: any) => oninput(e.target.value) }
+            )
+        )
+    );
+}
+
 interface ButtonProps {
     label: string;
     onclick: () => void;
@@ -277,10 +289,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
                 }),
                 H(Field, {
                     label: '表示する文字',
-                    input: H(TextInput, {
+                    input: H(Textarea, {
                         value: text,
                         oninput: (val: string) => {
-                            console.log('oninput ' + val);
                             setLoadingState({ text: val, overrideUrl: url });
                         }
                     })
