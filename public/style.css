@@ -32,6 +32,11 @@ h1:after {
     margin-left: 5%;
 }
 
+.card-margin-setting {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 a {
     cursor: pointer;
     color: #0076FF;
@@ -57,7 +62,8 @@ footer {
     border-radius: 10px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     line-height: 1.5;
-    margin: 0 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .card::before {
     position: absolute;
@@ -88,13 +94,13 @@ footer {
 }
 
 .pull-left {
-    min-width: 50%;
+    min-width: 34%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .pull-right {
-    min-width: 50%;
+    min-width: 66%;
 }
 
 button {
